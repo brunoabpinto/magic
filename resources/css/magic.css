@@ -1,0 +1,35 @@
+.magic-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reset-button {
+    position: absolute;
+    right: -50px;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    padding: 8px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.magic-container:hover .reset-button {
+    opacity: 1;
+}
+
+.reset-button:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.reset-button:active {
+    transform: scale(0.95);
+}

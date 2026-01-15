@@ -1,0 +1,30 @@
+{
+    "name": "brunoabpinto/magic",
+    "description": "Editable inline content with database persistence",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bruno Pinto",
+            "email": "brunoabpinto@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "livewire/livewire": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Brunoabpinto\\Magic\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Brunoabpinto\\Magic\\MagicServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
