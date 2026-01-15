@@ -39,7 +39,7 @@ class MagicComponent extends Component
         Cache::forever("magic.{$this->key}", $value);
     }
 
-    public function resetrr(): void
+    public function _reset(): void
     {
         dd('dsads');
         $this->value = $this->originalValue;

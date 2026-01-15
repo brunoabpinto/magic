@@ -7,7 +7,7 @@ Editable inline content with automatic database persistence using Livewire.
 1. Install via Composer:
 
 ```bash
-composer require Brunoabpinto/magic
+composer require brunoabpinto/magic
 ```
 
 2. Publish and run migrations:
