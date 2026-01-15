@@ -41,7 +41,6 @@ class MagicComponent extends Component
 
     public function _reset(): void
     {
-        dd('dsads');
         $this->value = $this->originalValue;
         Cache::forget("magic.{$this->key}");
         Magic::where('key', $this->key)->delete();
