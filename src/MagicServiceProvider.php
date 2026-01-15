@@ -38,6 +38,11 @@ class MagicServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/css/magic.css' => public_path('vendor/magic/magic.css'),
         ], 'magic-assets');
+
+        $target = public_path('vendor/magic/magic.css');
+        if (!file_exists($target)) {
+            copy(__DIR__.'/../resources/css/magic.css', $target);
+        }
     }
 
     public function register(): void
