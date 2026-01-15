@@ -4,8 +4,6 @@
 
 Editable inline content with automatic database persistence using Livewire.
 
-## Demo
-
 ![Demo](demo.gif)
 
 ## Installation
