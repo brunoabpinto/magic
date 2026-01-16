@@ -35,6 +35,13 @@ In your Blade views:
 @magic('Editable text')
 ```
 
+or if you have multiple @magic blocks with the same text and want to keep them separate:
+
+```blade
+@magic('Editable text', 'my-id')
+@magic('Editable text', 'my-other-id')
+```
+
 ## Features
 
 - ✅ Inline editing with contenteditable
