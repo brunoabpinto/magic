@@ -21,7 +21,12 @@ class MagicServiceProvider extends ServiceProvider
 
         // Blade directive for @magic($value)
         Blade::directive('magic', function (string $expression) {
-            return "<?php echo \\Livewire\\Livewire::mount('magic', ['originalValue' => $expression]); ?>";
+            preg_match_all('/([\'"])(.*?)\1/', $expression, $matches);
+
+            $expression = $matches[2][0] ?? null;
+            $id = $matches[2][1] ?? null;
+
+            return "<?php echo \\Livewire\\Livewire::mount('magic', ['expression' => '$expression', 'id' => '$id']); ?>";
         });
 
         // Publish configuration
@@ -40,7 +45,7 @@ class MagicServiceProvider extends ServiceProvider
         ], 'magic-assets');
 
         $target = public_path('vendor/magic/magic.css');
-        if (!file_exists($target)) {
+        if (! file_exists($target)) {
             copy(__DIR__.'/../resources/css/magic.css', $target);
         }
     }

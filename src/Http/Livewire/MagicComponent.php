@@ -11,14 +11,17 @@ use Livewire\Component;
 class MagicComponent extends Component
 {
     #[Prop]
-    public string $originalValue = '';
+    public string $expression = '';
+
+    #[Prop]
+    public ?string $id = null;
 
     public string $value = '';
 
     #[Computed]
     public function key(): string
     {
-        return md5($this->originalValue);
+        return $this->id ? md5($this->id) : md5($this->expression);
     }
 
     public function mount(): void
@@ -26,7 +29,7 @@ class MagicComponent extends Component
         $storedValue = Cache::rememberForever("magic.{$this->key}", function () {
             $v = Magic::where('key', $this->key)->first();
 
-            return $v ? $v->value : $this->originalValue;
+            return $v ? $v->value : $this->expression;
         });
 
         $this->value = $storedValue;
@@ -42,7 +45,7 @@ class MagicComponent extends Component
 
     public function _reset(): void
     {
-        $this->value = $this->originalValue;
+        $this->value = $this->expression;
         Cache::forget("magic.{$this->key}");
         Magic::where('key', $this->key)->delete();
     }
