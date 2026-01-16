@@ -37,6 +37,7 @@ class MagicComponent extends Component
         $this->value = $value;
         Magic::updateOrCreate(['key' => $this->key], ['value' => $value]);
         Cache::forever("magic.{$this->key}", $value);
+        $this->skipRender();
     }
 
     public function _reset(): void
